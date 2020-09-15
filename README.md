@@ -1,4 +1,4 @@
-# OAuth2Retrofit2AndroidUdemy
+# OAuth2Retrofit2Android
 
 OAuth2 é um protocolo / estrutura de autorização que permite que um aplicativo de terceiros obtenha acesso limitado a um serviço HTTP, seja em nome de um proprietário de recurso, organizando uma interação de aprovação entre o proprietário do recurso e o serviço HTTP ou permitindo que a ablação de terras tenha acesso em seu próprio nome.
 
@@ -52,7 +52,7 @@ Uma concessão de autorização é uma credencial que representa a autorização
 
 4.- Credenciais do cliente.
 
-Em nosso exemplo, usamos a concessão de credencial de senha do proprietário do recurso.
+Nosso exemplo, usamos a concessão de credencial de senha do proprietário do recurso.
 
 / ************************************************** *******************************
 
@@ -76,7 +76,7 @@ Sua duração é maior do que o token de acesso e depende da segurança que voc�
 ************************************************** ****************************** /
 
 Em outras palavras, o usuário dá ao cliente acesso específico aos seus recursos. Exemplo que só pode ler ou também escrever.
-No exemplo bancário, o Usuário só dá acesso para ver seus Movimentos, mas não para fazer operações bancárias.
+
 
 
 
