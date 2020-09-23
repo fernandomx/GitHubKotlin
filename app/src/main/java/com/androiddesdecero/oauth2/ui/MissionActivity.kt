@@ -1,17 +1,16 @@
 package com.androiddesdecero.oauth2.ui
 
+//import com.androiddesdecero.oauth2.model.Model2
 import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.os.AsyncTask
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.androiddesdecero.oauth2.MissionDetailActivity
@@ -20,7 +19,6 @@ import com.androiddesdecero.oauth2.api.WebServiceOAuth
 import com.androiddesdecero.oauth2.api.WebServiceOAuthApi
 import com.androiddesdecero.oauth2.model.Missions
 import com.androiddesdecero.oauth2.model.Model
-import com.androiddesdecero.oauth2.model.Model2
 import com.androiddesdecero.oauth2.model.adapter.MissionsAdapter
 import com.androiddesdecero.oauth2.model.callback.MissionsFetchListener
 import com.androiddesdecero.oauth2.model.database.MissionsDatabase
@@ -30,7 +28,6 @@ import com.androiddesdecero.oauth2.shared_pref.TokenManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.net.URL
 
 class MissionActivity : AppCompatActivity(), MissionsAdapter.MissionClickListener, MissionsFetchListener {
 
@@ -53,7 +50,12 @@ class MissionActivity : AppCompatActivity(), MissionsAdapter.MissionClickListene
         configViews()
         //mManager = RestManager()
         mDatabase = MissionsDatabase(this)
-        //loadFlowerFeed()
+
+
+
+
+
+
         loadMissionsFeed()
         mReload!!.setOnClickListener { loadMissionsFeed() }
 
@@ -125,22 +127,20 @@ class MissionActivity : AppCompatActivity(), MissionsAdapter.MissionClickListene
                             for (i in missionsList.missoes.indices) {
                                 val missions = missionsList.missoes[i]
 
-                                //Salvar no banco de dados
-                                val task = SaveIntoDatabase()
-                                task.execute(missions)
 
-                                /*
-                                val mi_fli = missionsList.missoes[i]
+                                //verifica se já  não possui missão criada no banco de dados
+                                //val it = intent
+                                //if (!it.hasExtra("mission")) {
+                                    //missions = it.getSerializableExtra("aluno") as Aluno
+                                    //nome.setText(aluno.getNome())
+                                    //cpf.setText(aluno.getCpf())
+                                    //telefone.setText(aluno.getTelefone())
 
-                                //show flights of missions
-                                for (i in mi_fli.flights.indices) {
+                                    //Salvar no banco de dados
+                                    val task = SaveIntoDatabase()
+                                    task.execute(missions)
 
-                                    val flights = mi_fli.flights[i]
-
-                                    Log.i("MISSIONS", "FLIGHT: " + flights.id + "-" + flights.status)
-                                }
-
-                                 */
+                                //}
 
 
                                 mMissionsAdapter!!.addMissions(missions!!)

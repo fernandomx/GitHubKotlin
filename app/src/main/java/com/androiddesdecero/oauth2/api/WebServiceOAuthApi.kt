@@ -1,7 +1,6 @@
 package com.androiddesdecero.oauth2.api
 
 import com.androiddesdecero.oauth2.model.Model
-import com.androiddesdecero.oauth2.model.Model2
 import com.androiddesdecero.oauth2.model.Token
 import com.androiddesdecero.oauth2.model.Users
 import retrofit2.Call
@@ -49,6 +48,6 @@ interface WebServiceOAuthApi {
     @GET("https://gateway.eneva.pixforcemaps.com/api/missions?page=0&size=10&order=id&direction=ASC")
     fun obterMissoes(@Header("Authorization") accessToken: String?): Call<Model?>?
 
-    @GET("https://gateway.eneva.pixforcemaps.com/api/missions?page=0&size=10&order=id&direction=ASC")
-    fun obterMissoes2(@Header("Authorization") accessToken: String?): Call<Model2?>?
+    //@GET("https://gateway.eneva.pixforcemaps.com/api/missions?page=0&size=10&order=id&direction=ASC")
+    //fun obterMissoes2(@Header("Authorization") accessToken: String?): Call<Model2?>?
 }

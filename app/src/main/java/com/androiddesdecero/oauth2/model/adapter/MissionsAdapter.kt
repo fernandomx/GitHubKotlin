@@ -10,7 +10,6 @@ import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.androiddesdecero.oauth2.R
-import com.androiddesdecero.oauth2.model.Creator
 import com.androiddesdecero.oauth2.model.Missions
 import java.time.Instant
 import java.time.ZoneId
@@ -25,7 +24,7 @@ import java.util.ArrayList
 class MissionsAdapter(listener: MissionClickListener) : RecyclerView.Adapter<MissionsAdapter.Holder>() {
     private val mListener: MissionClickListener
     private val mMissions: MutableList<Missions>
-    private val mCreator: MutableList<Creator>
+    //private val mCreator: MutableList<Creator>
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
@@ -66,10 +65,7 @@ class MissionsAdapter(listener: MissionClickListener) : RecyclerView.Adapter<Mis
         notifyDataSetChanged()
     }
 
-    fun addCreator(creator: Creator) {
-        mCreator.add(creator)
-        notifyDataSetChanged()
-    }
+
 
     /**
      * @param position
@@ -118,7 +114,6 @@ class MissionsAdapter(listener: MissionClickListener) : RecyclerView.Adapter<Mis
 
     init {
         mMissions = ArrayList()
-        mCreator = ArrayList()
         mListener = listener
     }
 }

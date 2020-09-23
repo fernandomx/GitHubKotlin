@@ -1,5 +1,6 @@
-package com.androiddesdecero.oauth2.model
 
+package com.androiddesdecero.oauth2.model
+/*
 import com.google.gson.annotations.SerializedName
 import java.util.ArrayList
 
@@ -15,3 +16,5 @@ class Model2 {
     var flights: List<Flights> = ArrayList()
 
 }
+
+ */

@@ -45,10 +45,34 @@ class MissionsDatabase(context: Context?) : SQLiteOpenHelper(context, Constants.
         //values.put(Constants.DATABASE.PHOTO, getPictureByteOfArray(flower.picture!!))
         try {
             db.insert(Constants.DATABASE.TABLE_NAME, null, values)
+
         } catch (e: Exception) {
         }
         db.close()
     }
+
+    fun updMissions(missions: Missions) {
+        Log.d(TAG, "Values update " + missions.name)
+
+
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(Constants.DATABASE.NAME, missions.name)
+        values.put(Constants.DATABASE.STATUS, missions.status)
+
+        try {
+            //db.insert(Constants.DATABASE.TABLE_NAME, null, values)
+            db.update(Constants.DATABASE.TABLE_NAME,values,null,null)
+        } catch (e: Exception) {
+        }
+        db.close()
+
+
+    }
+
+
+
+
 
     fun fetchMissions(listener: MissionsFetchListener) {
         val fetcher = MissionsFetcher(listener, this.writableDatabase)
