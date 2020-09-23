@@ -3,7 +3,8 @@ package com.androiddesdecero.oauth2.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+//import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Base64
 import android.util.Log
 import android.view.View
@@ -14,6 +15,7 @@ import com.androiddesdecero.oauth2.api.WebServiceOAuth.Companion.instance
 import com.androiddesdecero.oauth2.api.WebServiceOAuthApi
 import com.androiddesdecero.oauth2.model.Token
 import com.androiddesdecero.oauth2.model.Users
+import com.androiddesdecero.oauth2.model.helper.Utils
 import com.androiddesdecero.oauth2.shared_pref.TokenManager
 import com.androiddesdecero.oauth2.shared_pref.TokenManager.Companion.getIntance
 import retrofit2.Call
@@ -34,12 +36,27 @@ class MainActivity : AppCompatActivity() {
         setUpView()
     }
 
+
+    val networkAvailability: Boolean
+        get() = Utils.isNetworkAvailable(applicationContext)
+        //get() = false
+
     private fun setUpView() {
         tokenManager = getIntance(getSharedPreferences(TokenManager.SHARED_PREFERENCES, Context.MODE_PRIVATE))
         etUsername = findViewById(R.id.etUsername)
         etPassword = findViewById(R.id.etPassword)
         btObterToken = findViewById(R.id.btObterToken)
-        btObterToken?.run { setOnClickListener(View.OnClickListener { obterToken() }) }
+        btObterToken?.run { setOnClickListener(View.OnClickListener {
+
+
+            if (networkAvailability) {
+                obterToken()
+            }else {
+                startActivity(Intent(applicationContext, MissionActivity::class.java))
+            }
+
+
+        }) }
 
 
         //btCrearUsuario = findViewById(R.id.btCrearUsuario);
@@ -50,9 +67,11 @@ class MainActivity : AppCompatActivity() {
                 crearUsuario();
             }
         });
+  */
 
-         */btVerTodosUsuarios = findViewById(R.id.btVerTodosUsuarios)
-        btVerTodosUsuarios?.run { setOnClickListener(View.OnClickListener { verTodosUsuarios() }) }
+        //btVerTodosUsuarios = findViewById(R.id.btVerTodosUsuarios)
+
+        //btVerTodosUsuarios?.run { setOnClickListener(View.OnClickListener { verTodosUsuarios() }) }
 
 /*
         btVerTodosLosMovimientosBancarios = findViewById(R.id.btVerTodosLosMovimientosBancarios);
@@ -115,7 +134,8 @@ class MainActivity : AppCompatActivity() {
                     token = response.body()
                     tokenManager!!.saveToken(token!!)
                     //TODO start new Activity
-                    startActivity(Intent(applicationContext, LogeadoActivity::class.java))
+                    //startActivity(Intent(applicationContext, LogeadoActivity::class.java))
+                    startActivity(Intent(applicationContext, MissionActivity::class.java))
                 } else {
                     Log.d("TAG1", "Error")
                 }

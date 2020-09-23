@@ -3,7 +3,8 @@ package com.androiddesdecero.oauth2.ui
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+//import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.Button
@@ -32,6 +33,7 @@ class LogeadoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_logeado)
         setUpView()
         activity = this
+
     }
 
     private fun setUpView() {
@@ -78,7 +80,7 @@ class LogeadoActivity : AppCompatActivity() {
                     Log.i("LogeadoActivity", "onResponse: " + model.toString())
                     Log.i("LogeadoActivity", "onResponse: " + model!!.missoes[0].name)
                     for (i in model.missoes.indices) {
-                        Log.i("LogeadoActivity", "MISSION: " + model.missoes[i].id + model.missoes[i].name) ///onResponse: null
+                        Log.i("LogeadoActivity", "MISSION: " + model.missoes[i].id + "-" + model.missoes[i].name  + "-" + model.missoes[i].start + "-" + model.missoes[i].status ) ///onResponse: null
                     }
                 } catch (e: Exception) {
                     Log.e("ERROR", "ERRO: " + e.message.toString())
