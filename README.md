@@ -18,7 +18,7 @@ git clone https://github.com/fernandomx/GitHubKotlin.git
 
 
 
-# Arquietura
+# Arquitetura
 
 - MVP
 
