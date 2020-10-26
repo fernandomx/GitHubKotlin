@@ -4,7 +4,7 @@ apply plugin: 'kotlin-android'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.androiddesdecero.oauth2"
+        applicationId "com.androidgit.oauth2"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
@@ -34,6 +34,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 
 }
 repositories {
